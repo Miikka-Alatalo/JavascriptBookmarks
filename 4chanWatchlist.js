@@ -1,0 +1,1 @@
+javascript:(function(){ var wl = document.getElementById("watchList"); for(var i=0;i<wl.childNodes.length;i++){ var th = wl.children[i].getElementsByTagName("a")[0]; if(th.classList.contains("hasNewReplies")){ window.open(th.href, "_blank"); } }})();

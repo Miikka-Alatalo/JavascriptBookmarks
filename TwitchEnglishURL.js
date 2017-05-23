@@ -1,0 +1,1 @@
+javascript:(function(){var inputstringit = window.location.href;window.location.href=inputstringit+"/en";})();

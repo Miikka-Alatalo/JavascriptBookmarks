@@ -1,0 +1,1 @@
+javascript:(function(){ var asd = document.getElementsByClassName("over18"); var dsa = asd.length; for(i=0;i<dsa;i++){ var bgc = asd[i].style.backgroundColor; if(bgc == "pink"){ asd[i].remove(); i--; } else { asd[i].style.backgroundColor = "pink"; } } })();

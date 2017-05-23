@@ -1,0 +1,1 @@
+javascript:(function(){ var inputstringit = window.location.href; var stringienpaksuus = inputstringit.indexOf("youtube.com/watch?v="); if(stringienpaksuus == -1){ return; } else { var kaytetytstringit = inputstringit.replace("watch?v=","v/"); window.location.href = kaytetytstringit; } })();
