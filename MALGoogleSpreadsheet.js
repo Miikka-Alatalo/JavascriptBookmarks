@@ -1,4 +1,5 @@
-var title = "";
+var title = $( "span[itemprop*='name']" )[0].innerText;
+var synopsis $( "span[itemprop*='description']" )[0].innerText
 var altTitle = "";
 var type = "";
 var episodes = "";
