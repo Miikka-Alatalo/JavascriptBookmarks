@@ -1,5 +1,5 @@
-var title = $( "span[itemprop*='name']" )[0].innerText;
-var synopsis $( "span[itemprop*='description']" )[0].innerText
+var title = $("span[itemprop*='name']")[0].innerText;
+var synopsis = $("span[itemprop*='description']")[0].innerText.replace(/(?:\r\n|\r|\n)/g, ' ')
 var altTitle = "";
 var type = "";
 var episodes = "";
@@ -10,6 +10,9 @@ var fAiring = "";
 var producers = "";
 var rating = "";
 var score = "";
+
+var date = new Date();
+var sWathing = date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
 
 var divs = $("div#content table tbody tr td.borderClass div");
 for (var i = 0; i < divs.length; i++) {
@@ -61,21 +64,54 @@ for (var i = 0; i < divs.length; i++) {
         } else if (text == "Score:") {
             score = elm.children[1].innerText
         }
-    } catch (err) {
-
-    }
+    } catch (err) { }
 
 
 }
 
-console.log("title: "+title)
-console.log("altTitle: "+altTitle)
-console.log("type: "+type)
-console.log("episodes: "+episodes)
-console.log("length: "+length)
-console.log("genres: "+genres)
-console.log("sAiring: "+sAiring)
-console.log("fAiring: "+fAiring)
-console.log("producers: "+producers)
-console.log("rating: "+rating)
-console.log("score: "+score)
+//This can be explained with: https://www.youtube.com/watch?v=RSf9aEETnvE
+var status = '=IF(INDIRECT(ADDRESS(ROW();1))="";"";IF(INDIRECT(ADDRESS(ROW();9))=0;"Not started";IF(MOD(INDIRECT(ADDRESS(ROW();9));INDIRECT(ADDRESS(ROW();8)))=0;"Completed";"Watching")))';
+var views = '=IF(ISERR(INT(INDIRECT(ADDRESS(ROW();9))/INDIRECT(ADDRESS(ROW();8))));0;INT(INDIRECT(ADDRESS(ROW();9))/INDIRECT(ADDRESS(ROW();8))))';
+var season = '=(INDIRECT(ADDRESS(ROW();8))*INDIRECT(ADDRESS(ROW();10)))';
+var seen = '=(INDIRECT(ADDRESS(ROW();9))*INDIRECT(ADDRESS(ROW();10)))';
+var seenHour = '=ROUND(INDIRECT(ADDRESS(ROW();12))/60;1)';
+
+var textToCopy =
+/*a*/    title + "\t"
+/*b*/  + altTitle + "\t"
+/*c*/  + status + "\t"
+/*d*/  + views + "\t"
+/*e*/  + "\t"
+/*f*/  + "\t"
+/*g*/  + type + "\t"
+/*h*/  + episodes + "\t"
+/*i*/  + "0\t"
+/*j*/  + length + "\t"
+/*k*/  + season + "\t"
+/*l*/  + seen + "\t"
+/*m*/  + seenHour + "\t"
+/*n*/  + genres + "\t"
+/*o*/  + sAiring + "\t"
+/*p*/  + fAiring + "\t"
+/*q*/  + producers + "\t"
+/*r*/  + rating + "\t"
+/*s*/  + synopsis + "\t"
+/*t*/  + score + "\t"
+/*u*/  + "\t"
+/*v*/  + sWathing + "\t"
+/*w*/  + "\t"
+/*x*/  + window.location.href;
+
+if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+    var textarea = document.createElement("textarea");
+    textarea.textContent = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+        document.execCommand("copy");
+    } catch (ex) {
+        alert(ex);
+    } finally {
+        document.body.removeChild(textarea);
+    }
+}
