@@ -1,3 +1,5 @@
+javascript:(function(){ 
+
 var title = $("span[itemprop*='name']")[0].innerText;
 var synopsis = $("span[itemprop*='description']")[0].innerText.replace(/(?:\r\n|\r|\n)/g, ' ')
 var altTitle = "";
@@ -115,3 +117,5 @@ if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
         document.body.removeChild(textarea);
     }
 }
+
+})();
