@@ -1,7 +1,7 @@
 javascript:(function(){ 
 
 var title = $("span[itemprop*='name']")[0].innerText;
-var synopsis = $("span[itemprop*='description']")[0].innerText.replace(/(?:\r\n|\r|\n)/g, ' ')
+var synopsis = $("span[itemprop*='description']")[0].innerText.replace(/(?:\r\n|\r|\n)/g, ' ');
 var altTitle = "";
 var type = "";
 var episodes = "";
@@ -50,13 +50,13 @@ for (var i = 0; i < divs.length; i++) {
             try {
                 var times = elm.innerText.split("Aired: ")[1].split(" to ");
                 var sDate = new Date(times[0]);
-                sAiring = sDate.getDate() + "." + (sDate.getMonth() + 1) + "." + sDate.getFullYear()
+                sAiring = sDate.getDate() + "." + (sDate.getMonth() + 1) + "." + sDate.getFullYear();
                 if (times.length == 1) {
                     var fDate = new Date(times[0]);
-                    fAiring = fDate.getDate() + "." + (fDate.getMonth() + 1) + "." + fDate.getFullYear()
+                    fAiring = fDate.getDate() + "." + (fDate.getMonth() + 1) + "." + fDate.getFullYear();
                 } else {
                     var fDate = new Date(times[1]);
-                    fAiring = fDate.getDate() + "." + (fDate.getMonth() + 1) + "." + fDate.getFullYear()
+                    fAiring = fDate.getDate() + "." + (fDate.getMonth() + 1) + "." + fDate.getFullYear();
                 }
             } catch (err) { }
         } else if (text == "Producers:") {
@@ -66,12 +66,12 @@ for (var i = 0; i < divs.length; i++) {
         } else if (text == "Score:") {
             score = elm.children[1].innerText
         }
-    } catch (err) { }
+    } catch (err) {}
 
 
 }
 
-//This can be explained with: https://www.youtube.com/watch?v=RSf9aEETnvE
+/*This can be explained with: https://www.youtube.com/watch?v=RSf9aEETnvE*/
 var status = '=IF(INDIRECT(ADDRESS(ROW();1))="";"";IF(INDIRECT(ADDRESS(ROW();9))=0;"Not started";IF(MOD(INDIRECT(ADDRESS(ROW();9));INDIRECT(ADDRESS(ROW();8)))=0;"Completed";"Watching")))';
 var views = '=IF(ISERR(INT(INDIRECT(ADDRESS(ROW();9))/INDIRECT(ADDRESS(ROW();8))));0;INT(INDIRECT(ADDRESS(ROW();9))/INDIRECT(ADDRESS(ROW();8))))';
 var season = '=(INDIRECT(ADDRESS(ROW();8))*INDIRECT(ADDRESS(ROW();10)))';
