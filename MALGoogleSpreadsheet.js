@@ -77,14 +77,15 @@ var views = '=IF(ISERR(INT(INDIRECT(ADDRESS(ROW();9))/INDIRECT(ADDRESS(ROW();8))
 var season = '=(INDIRECT(ADDRESS(ROW();8))*INDIRECT(ADDRESS(ROW();10)))';
 var seen = '=(INDIRECT(ADDRESS(ROW();9))*INDIRECT(ADDRESS(ROW();10)))';
 var seenHour = '=ROUND(INDIRECT(ADDRESS(ROW();12))/60;1)';
+var counts = '=INDIRECT(ADDRESS(ROW()-1;COLUMN()))+1';
 
 var textToCopy =
 /*a*/    title + "\t"
 /*b*/  + altTitle + "\t"
 /*c*/  + status + "\t"
 /*d*/  + views + "\t"
-/*e*/  + "\t"
-/*f*/  + "\t"
+/*e*/  + counts + "\t"
+/*f*/  + counts + "\t"
 /*g*/  + type + "\t"
 /*h*/  + episodes + "\t"
 /*i*/  + "0\t"
