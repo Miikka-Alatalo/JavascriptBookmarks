@@ -64,7 +64,8 @@ for (var i = 0; i < divs.length; i++) {
         } else if (text == "Rating:") {
             rating = elm.innerText.split("Rating: ")[1];
         } else if (text == "Score:") {
-            score = elm.children[1].innerText
+            var helper = parseFloat(elm.children[1].innerText);
+            score = (""+helper.toFixed(2)).replace(".",",");
         }
     } catch (err) {}
 
