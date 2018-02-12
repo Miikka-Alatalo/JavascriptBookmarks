@@ -1,0 +1,2 @@
+alias ccd="echo "$(pwd)"|xclip -i"
+alias tl="r|less"
