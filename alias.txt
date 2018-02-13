@@ -1,2 +1,11 @@
-alias ccd="echo "$(pwd)"|xclip -i"
+alias cwd="pwd|xclip -i"
 alias tl="r|less"
+alias xc="r|xclip -i"
+function tldr() { cat $1 | less }
+function listeningport() {
+  if [[ -d $1 ]] ; then
+    command netstat -tulpn
+  else
+    command netstat -tulpn | grep "$1"
+  fi
+}
