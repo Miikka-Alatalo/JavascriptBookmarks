@@ -1,11 +1,8 @@
 alias cwd="pwd|xclip -i"
 alias xc="r|xclip -i"
-function tl() {
-  if [[ -d $1 ]] ; then
-    command r|less
-  else
-    command cat $1 | less 
-  fi 
+alias tl="r|less"
+function catl() {
+  command cat $1 | less 
 }
 function listeningport() {
   if [[ -d $1 ]] ; then
