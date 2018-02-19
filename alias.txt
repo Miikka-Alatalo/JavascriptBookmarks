@@ -1,7 +1,12 @@
 alias cwd="pwd|xclip -i"
-alias tl="r|less"
 alias xc="r|xclip -i"
-function tldr() { cat $1 | less }
+function tl() {
+  if [[ -d $1 ]] ; then
+    command r|less
+  else
+    command cat $1 | less 
+  fi 
+}
 function listeningport() {
   if [[ -d $1 ]] ; then
     command netstat -tulpn
