@@ -1,5 +1,5 @@
-alias cwd="pwd|xclip -i"
-alias xc="r|xclip -i"
+alias cwd="pwd | xclip -i -sel p -f | xclip -i -sel c"
+alias rxc="r | xclip -i -sel p -f | xclip -i -sel c"
 alias tl="r|less"
 function catl() {
   command cat $1 | less 
