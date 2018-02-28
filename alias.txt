@@ -3,9 +3,9 @@ function catl() {
 }
 function listeningport() {
   if [[ -d $1 ]] ; then
-    command netstat -tulpn
+    command sudo netstat -tulpn
   else
-    command netstat -tulpn | grep "$1"
+    command sudo netstat -tulpn | grep "$1"
   fi
 }
 
