@@ -1,6 +1,3 @@
-alias cwd="pwd | xclip -i -sel p -f | xclip -i -sel c"
-alias rxc="r | xclip -i -sel p -f | xclip -i -sel c"
-alias tl="r|less"
 function catl() {
   command cat $1 | less 
 }
@@ -11,3 +8,8 @@ function listeningport() {
     command netstat -tulpn | grep "$1"
   fi
 }
+
+alias cwd="pwd | xclip -i -sel p -f | xclip -i -sel c"
+alias rxc="r | xclip -i -sel p -f | xclip -i -sel c"
+alias tl="r|less"
+alias .s="cd .. && ls"
