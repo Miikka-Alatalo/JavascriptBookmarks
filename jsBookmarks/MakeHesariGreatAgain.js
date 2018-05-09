@@ -6,6 +6,7 @@ for(var i=0;i<list.length;i++) {
     if (list[i].getElementsByClassName("column-icon").length > 0 ||
     list[i].getElementsByClassName("premium-subscribers-note").length > 0 ||
     list[i].href.includes("/nyt/") ||
+    list[i].href.includes("/mainos/") ||
     (storyList[0] && storyList[0].innerHTML.includes("Kommentti")) ||
     (teaserList[0] && teaserList[0].innerHTML.includes("Mielipide"))) {
       toBeRemoved.push(list[i])
