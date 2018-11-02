@@ -1,6 +1,16 @@
+plugins=(
+  sudo
+  extract
+  docker
+  nvm
+)
+
+
+
 function catl() {
   command cat $1 | less 
 }
+
 function listeningport() {
   if [[ -d $1 ]] ; then
     command sudo netstat -tulpn
@@ -9,7 +19,21 @@ function listeningport() {
   fi
 }
 
+function mkcd() {
+  command mkdir $1 && cd $1
+}
+
+function gpgdc() {
+  command gpg --decrypt $1 | xclip -i -sel p -f | xclip -i -sel c
+}
+
+function chpwd() {
+    emulate -L zsh
+    ls -AF
+}
+
 alias cwd="pwd | xclip -i -sel p -f | xclip -i -sel c"
 alias rxc="r | xclip -i -sel p -f | xclip -i -sel c"
+alias cc="echo | xclip -i -sel p -f | xclip -i -sel c"
 alias tl="r|less"
 alias .s="cd .. && ls"
