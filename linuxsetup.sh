@@ -49,7 +49,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-applications "[]"
 gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "[]"
 # set
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Super>Tab', '<Alt>Tab']"
-gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Super>Tab', '<Shift><Alt>Tab']
+gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Super>Tab', '<Shift><Alt>Tab']"
 
 # ------
 # VSCODE
@@ -57,7 +57,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift
 ## TODO: wait for vscode install
 
 mkdir -p ~/.config/Code/User
-touch settings.json
+cd ~/.config/Code/User
 echo "{
     \"editor.tabSize\": 2
 }" > settings.json
