@@ -25,12 +25,14 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 cd ~/Documents
 mkdir -p git/alamiikka
-cd alamiikka
+cd git/alamiikka
 git clone https://github.com/alamiikka/pure
 cd pure
 mkdir ~/.zfunctions
-sudo ln -s "$PWD/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
-sudo ln -s "$PWD/async.zsh" "$HOME/.zfunctions/async"
+sudo ln -s "$PWD/pure.zsh" /usr/local/share/zsh/site-functions/prompt_pure_setup
+sudo ln -s "$PWD/async.zsh" /usr/local/share/zsh/site-functions/async
+ln -s "$PWD/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
+ln -s "$PWD/async.zsh" "$HOME/.zfunctions/async"
 
 cd ~
 sed -i '/ZSH_THEME="/c\ZSH_THEME=""' .zshrc
