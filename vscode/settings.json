@@ -1,0 +1,12 @@
+{
+    "editor.tabSize": 2,
+    "workbench.colorTheme": "Material Theme High Contrast",
+    "extensions.ignoreRecommendations": false,
+    "editor.minimap.enabled": false,
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#e0e0e0"
+    },
+    "workbench.editor.enablePreview": false,
+    "java.errors.incompleteClasspath.severity": "ignore"
+}
